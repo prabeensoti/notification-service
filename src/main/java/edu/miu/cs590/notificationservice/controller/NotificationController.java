@@ -14,10 +14,6 @@ public class NotificationController {
     @Autowired
     private EmailService emailService;
 
-    public String health(){
-        return "Notification service is up and running!!";
-    }
-
     @PostMapping("/email/push")
     public ResponseEntity<EmailResponse> paymentNotification(@RequestBody EmailSenderDto emailSenderDto){
         return emailService.paymentNotification(emailSenderDto);
