@@ -69,12 +69,11 @@ public class EmailSender {
 
     private JavaMailSenderImpl setMailSender() {
         JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
-        mailSender.setHost("smtp.gmail.com");
-        mailSender.setPort(587);
+        mailSender.setHost("smtp.mailtrap.io");
+        mailSender.setPort(2525);
 
-        mailSender.setUsername("ecomm@gmail.com");
-//        mailSender.setPassword("esscdmkhspdzxiyz");
-        mailSender.setPassword("asdfweqfasdfadsa");
+        mailSender.setUsername("9510a862d6b9cc");
+        mailSender.setPassword("020374c1c08d88");
         return mailSender;
     }
 }
