@@ -5,5 +5,5 @@ import edu.miu.cs590.notificationservice.util.EmailResponse;
 import org.springframework.http.ResponseEntity;
 
 public interface EmailService {
-    ResponseEntity<EmailResponse> paymentNotification(EmailSenderDto emailSenderDto);
+    EmailResponse paymentNotification(EmailSenderDto emailSenderDto);
 }

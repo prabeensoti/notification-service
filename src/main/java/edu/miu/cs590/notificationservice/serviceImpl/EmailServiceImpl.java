@@ -20,7 +20,7 @@ public class EmailServiceImpl implements EmailService {
 
 
     @Override
-    public ResponseEntity<EmailResponse> paymentNotification(EmailSenderDto emailSenderDto) {
+    public EmailResponse paymentNotification(EmailSenderDto emailSenderDto) {
         try{
             Email email = new Email();
             email.setSender(emailSenderDto.getSender());
@@ -32,11 +32,9 @@ public class EmailServiceImpl implements EmailService {
 
             emailRepository.save(email);
 
-            EmailResponse emailResponse = NotificationUtility.getSuccessfulServerResponse(true,"Email persists");
-            return new ResponseEntity<EmailResponse>(emailResponse, emailResponse.getHttpStatus());
+            return NotificationUtility.getSuccessfulServerResponse(true,"Email persists");
         }catch (Exception e){
-            EmailResponse emailResponse = NotificationUtility.getFailedServerResponse("Mail send failed!!");
-            return new ResponseEntity<>(emailResponse, emailResponse.getHttpStatus());
+            return NotificationUtility.getFailedServerResponse("Mail send failed!!");
         }
     }
 }

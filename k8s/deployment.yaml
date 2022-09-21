@@ -56,7 +56,7 @@ spec:
           valueFrom:
             configMapKeyRef:
               name: app
-              key: USER_DATABASE_NAME
+              key: NOTIFICATION_DATABASE_NAME
         - name: MYSQL_USERNAME
           valueFrom:
             secretKeyRef:
@@ -67,6 +67,11 @@ spec:
             secretKeyRef:
               name: mysqldb
               key: DATABASE_PASSWORD
+        - name: ORDER_NOTIFICATION_SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: app
+              key: ORDER_NOTIFICATION_SECRET_KEY
 ---
 apiVersion: v1
 kind: Service

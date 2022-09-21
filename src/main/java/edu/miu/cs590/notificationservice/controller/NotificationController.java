@@ -15,7 +15,7 @@ public class NotificationController {
     private EmailService emailService;
 
     @PostMapping("/email/push")
-    public ResponseEntity<EmailResponse> paymentNotification(@RequestBody EmailSenderDto emailSenderDto){
+    public EmailResponse paymentNotification(@RequestBody EmailSenderDto emailSenderDto){
         return emailService.paymentNotification(emailSenderDto);
     }
 
