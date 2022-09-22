@@ -4,6 +4,8 @@ import edu.miu.cs590.notificationservice.entity.Email;
 import edu.miu.cs590.notificationservice.repository.EmailRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
+import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import org.springframework.mail.javamail.JavaMailSender;
@@ -17,11 +19,12 @@ import java.util.List;
 import java.util.Properties;
 
 @Component
-@Scope("singleton")
+@EnableScheduling
 public class EmailSender {
     @Autowired
     private EmailRepository emailRepository;
 
+    @Scheduled(fixedDelay = 1000,initialDelay = 120000)
     public void fetchEmailToSend(){
         System.out.println("Job is running..");
         List<Email> emails = emailRepository.findEmailToSend();
